@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class AlarmDeactivator : MonoBehaviour
 {
-    private GameObject _alarm;
-
-    private void Start()
-    {
-        _alarm = GameObject.FindGameObjectWithTag("Alarm");
-    }
+    [SerializeField] private GameObject _alarm;
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Robber>(out Robber Robber))
         {
-            _alarm.TryGetComponent<Alarm>(out Alarm alarm);
-            alarm.DeactivateAlarm();
+            if (_alarm.TryGetComponent<Alarm>(out Alarm alarm))
+                alarm.DeactivateAlarm();
         }
     }
 }
