@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AlarmDeactivator : MonoBehaviour
 {
-    [SerializeField] private GameObject _alarm;
+    [SerializeField] private Alarm _alarm;
 
     private void OnTriggerExit2D(Collider2D collision)
     {

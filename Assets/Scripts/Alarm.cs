@@ -20,16 +20,16 @@ public class Alarm : MonoBehaviour
     public void ActivateAlarm()
     {
         _animator.SetBool(AnimatorAlarm.Params.IsAlarmOn, true);
-        StartCoroutine(VolumeChanger(1f));
+        StartCoroutine(ChangeVolume(1f));
     }
 
     public void DeactivateAlarm()
     {
         _animator.SetBool(AnimatorAlarm.Params.IsAlarmOn, false);
-        StartCoroutine(VolumeChanger(0f));
+        StartCoroutine(ChangeVolume(0f));
     }
 
-    private IEnumerator VolumeChanger(float targetVolume)
+    private IEnumerator ChangeVolume(float targetVolume)
     {
         float stepOfChange = 0.00015f;
 
